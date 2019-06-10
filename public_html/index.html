@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Bonus calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/category_payment_commercial.png" type="image/x-icon"/>
+        <link rel="shortcut icon" href="img/category_payment_commercial.png" type="image/x-icon"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="Css/Estilo.css">
+        <link rel="stylesheet" href="Css/fontello.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="Css/boot/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>  
+    </head>
+    <body class="">
+        
+        <section class="container-fluid">
+            <div class="row">
+                <div class="fondoblanco pt-5 col-sm-12 col-md-12 col-lg-6 new flex-wrap d-flex justify-content-around align-items-center text-center">
+                    <form id="newuser" method="post"class="formlogin" enctype="multipart/form-data">
+                        <p style="font-family: raleway; font-size: 28px; color: #003333">Calcula tu bono ingresando tus métricas</p>
+                        <div class="contenedor-inputs">
+                            <div class="row">
+                                <style>
+                                    .inputl{
+                                        border:0px;
+                                        font-family: raleway;
+                                        padding: 3px;
+                                        margin: 10px;
+                                        border-bottom: 1px #003333;
+                                    }
+                                </style>
+                                <div class="col-12">
+                                    <p style="font-family: raleway; font-size: 18px; color: #003333">Calcula el AHT en segundos, esto ayuda a la formula a ser más exacta</p>
+                                    <input class="inputl" style="width: 100px" type="number" id="Ahtmin" name="Minutos" placeholder="Minutos"><a> x 60 + </a>
+                                    <input class="inputl" style="width: 100px" type="number" id="Ahtsegundos" name="segundos" placeholder="segundos" >
+                                    <a onclick="ahtsegundos()" class="btn btn-primary rale">Calcular</a>    
+                                </div>
+                                <div class="col-12">
+                                    <input class="inputl" style="width: 160px" type="number" id="apellido" name="AHTensegundos" placeholder="AHT en segundos" >
+                                </div>
+                                <div class="col-12">
+                                    <input class="inputl" style="width: 160px" type="number" id="apellido" name="CSAT" placeholder="CSAT %" ><a>  %</a>
+                                </div>
+                                <div class="col-12">
+                                    <input class="inputl" style="width: 160px" type="number" id="correo" name="IR" placeholder="IR %" ><a>  %</a>
+                                </div>
+                                <div class="col-12">
+                                    <input class="inputl"  style="width: 160px" type="number" id="telefononw" name="QA" placeholder="QA %" ><a>  %</a>
+                                </div>
+                            </div>                         
+                            <div class="mt-1">
+                                <input type="submit" class="btn btn-primary rale" value="Calcular" >    
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-12 m-5">
+                        <a style="font-family: raleway; font-size: 18px; color: #003333">El bono del siguiente mes será de</a>
+                        <a style="font-family: raleway; font-size: 40px; color: #66cc00"> $</a>
+                        <a style="font-family: raleway; font-size: 40px; color: #66cc00"> 89 </a>
+                        <a style="font-family: raleway; font-size: 60px; color: #2aabd2"> ₡</a>
+                        <a style="font-family: raleway; font-size: 60px; color: #2aabd2"> 57,000 </a><br>
+                        <a style="font-family: raleway; font-size: 18px; color: #003333">Este tipo de cambio esta al precio ₡570</a>
+                    </div>
+                </div> 
+                <div class="col-6 fondo"></div>
+            </div>
+
+        </section>
+        <script>
+        
+                minutos = document.getElementById("Ahtmin").value;
+                segundos = document.getElementById("Ahtsegundos").value;
+                var ahtsegundos;
+                var csat = document.getElementById("csat");
+                var ir = document.getElementById("ir");
+                var qa = document.getElementById("qa");
+                var resultado = document.getElementById("resultado");
+                    
+        
+        
+                function ahtsegundos(){
+                    ahtsegundos = 2 * 60 + segundos;
+                    console.log(ahtsegundos);
+                    
+                }
+        
+        
+        
+                
+                
+                
+                
+                </script>
+    </body>
+</html>
